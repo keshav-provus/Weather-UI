@@ -54,3 +54,12 @@ export interface NavbarProps {
   unit: Unit;
   toggleUnit: () => void;
 }
+
+export interface FavoritesPanelProps {
+  favorites: string[];
+  weatherMap: Record<string, WeatherData>;
+  currentCity: string;
+  onSelectCity: (city: string) => void;
+  onToggleFavorite: (city: string) => void;
+  unit: Unit;
+}

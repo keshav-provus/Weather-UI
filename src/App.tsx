@@ -23,7 +23,7 @@ import type { WeatherData } from "./config/types";
 
 export default function App() {
   const [currentCity, setCurrentCity] = useState<string>("");
-  const [homeCity, setHomeCity] = useState<string>("Jaipur");
+  const [homeCity, setHomeCity] = useState<string>("Pune");
   const [searchQuery, setSearchQuery] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [favorites, setFavorites] = useState<string[]>(getStoredFavorites());
@@ -33,13 +33,17 @@ export default function App() {
   // 1. Initial location setup
   useEffect(() => {
     fetchLocation().then((city) => {
-      const targetCity = city ? formatCityName(city) : "Jaipur";
+      const targetCity = city ? formatCityName(city) : "Pune";
       setCurrentCity(targetCity);
       setHomeCity(targetCity);
     });
   }, []);
 
   // 2. Favorites
+  const onToggleFavorite = (city: string) => {
+    setFavorites((prev) => toggleCityInList(prev, city));
+  };
+
   useEffect(() => {
     saveFavoritesToStorage(favorites);
   }, [favorites]);
@@ -57,10 +61,6 @@ export default function App() {
     });
 
     setUnit(nextUnit);
-  };
-
-  const onToggleFavorite = (city: string) => {
-    setFavorites((prev) => toggleCityInList(prev, city));
   };
 
   // 4. Optimized Data Fetching

@@ -1,14 +1,5 @@
 import { Unit } from "../config/types";
-import type { WeatherData } from "../config/types";
-
-interface FavoritesPanelProps {
-  favorites: string[];
-  weatherMap: Record<string, WeatherData>;
-  currentCity: string;
-  onSelectCity: (city: string) => void;
-  onToggleFavorite: (city: string) => void;
-  unit: Unit;
-}
+import type { FavoritesPanelProps } from "../config/types";
 
 export default function FavoritesPanel({
   favorites,
