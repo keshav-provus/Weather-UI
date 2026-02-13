@@ -1,17 +1,3 @@
-async function reverseGeocode(lat: number, lon: number): Promise<string> {
-  try {
-    const url = `${import.meta.env.VITE_REVERSE_GEOCODE_API_URL}latitude=${lat}&longitude=${lon}&localityLanguage=en`;
-    const response = await fetch(url);
-    if (!response.ok) throw new Error("Reverse geocoding failed");
-
-    const data = await response.json();
-    return data.city || data.locality || "Unknown Location";
-  } catch (error) {
-    console.error("Geocoding error:", error);
-    return "Unknown City";
-  }
-}
-
 async function fetchLocationUsingIP(): Promise<string> {
   try {
     const response = await fetch(`${import.meta.env.VITE_IP_GEOLOCATION_API_URL}`);
@@ -25,26 +11,6 @@ async function fetchLocationUsingIP(): Promise<string> {
   }
 }
 
-export async function fetchLocation(): Promise<string | null> {
-  if (navigator.geolocation) {
-    return new Promise((resolve) => {
-      navigator.geolocation.getCurrentPosition(
-        async (position) => {
-          const cityName = await reverseGeocode(
-            position.coords.latitude,
-            position.coords.longitude,
-          );
-          resolve(cityName);
-        },
-        (error) => {
-          console.warn("Location access denied or failed. Stopping.");
-          resolve(error.code === error.PERMISSION_DENIED ? null : "Pune");
-        },
-        { timeout: 8000 },
-      );
-    });
-  } else {
-    console.info("Navigator not supported. Falling back to IP.");
+export async function fetchLocation(): Promise<string> {
     return await fetchLocationUsingIP();
   }
-}

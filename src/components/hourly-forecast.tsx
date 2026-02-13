@@ -10,7 +10,7 @@ export default function HourlyForecast({
   const colWidth = 85;
   const graphHeight = 70;
   const MET_BASE =
-    "https://raw.githubusercontent.com/metno/weathericons/main/weather/svg/";
+    `${import.meta.env.VITE_THEME_ICON_BASE_URL}`;
 
   const data = hourly?.slice(0, 24) || [];
   const temps = data.map((h) => h.temp);

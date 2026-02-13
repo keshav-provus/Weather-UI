@@ -69,7 +69,6 @@ export default function App() {
     const syncWeather = async () => {
       setIsLoading(true);
 
-      // Only fetch cities not already in the map
       const favoritesToFetch = favorites.filter((city) => !weatherMap[city]);
       const citiesToFetch = Array.from(
         new Set([currentCity, ...favoritesToFetch]),
