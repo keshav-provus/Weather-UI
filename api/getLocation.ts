@@ -1,17 +1,15 @@
 // api/getLocation.ts
-import { geolocation } from '@vercel/functions';
-
 export const config = {
-  runtime: 'edge', // This makes it run at the edge (closest to the user)
+  runtime: 'edge', 
 };
 
 export default function handler(request: Request) {
-  // Extract geo-data from Vercel's incoming request headers
-  const { city } = geolocation(request);
+  // Edge runtime automatically receives these headers
+  const city = request.headers.get('x-vercel-ip-city') || 'Jaipur';
+  const country = request.headers.get('x-vercel-ip-country') || 'IN';
 
-  // Return the city as JSON
   return new Response(
-    JSON.stringify({ city: city || "Jaipur" }), // Fallback city
+    JSON.stringify({ city, country }),
     {
       status: 200,
       headers: { 'content-type': 'application/json' },
