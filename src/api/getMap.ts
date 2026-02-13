@@ -3,7 +3,7 @@ import maplibregl from "maplibre-gl";
 export const initMap = (container: HTMLDivElement) => {
   const map = new maplibregl.Map({
     container,
-    style: "https://tiles.stadiamaps.com/styles/alidade_smooth_dark.json",
+    style: `${import.meta.env.VITE_MAP_STYLE_URL}`,
     center: [0, 0],
     zoom: 2,
     attributionControl: false,
@@ -23,7 +23,7 @@ export const flyToCity = async (map: maplibregl.Map, city: string) => {
 
   try {
     const res = await fetch(
-      `https://nominatim.openstreetmap.org/search?format=json&q=${city}`,
+      `${import.meta.env.VITE_FLY_TO_CITY_URL}${city}`,
     );
     const data = await res.json();
 

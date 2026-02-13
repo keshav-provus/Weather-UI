@@ -19,8 +19,8 @@ interface Config {
 export const config: Config = {
   api: {
     weatherKey: import.meta.env.VITE_WEATHER_API_KEY,
-    astroKey: import.meta.env.VITE_ASTRO_API_KEY,
     geminiKey: import.meta.env.VITE_GEMINI_API_KEY,
+    astroKey: import.meta.env.VITE_ASTRO_API_KEY,
     weatherBaseUrl:
       "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline",
     astroBaseUrl: "https://api.ipgeolocation.io/astronomy",
@@ -28,7 +28,7 @@ export const config: Config = {
       "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
   },
   defaults: {
-    city: "Jaipur",
+    city: "Pune",
     unitGroup: "metric",
   },
   theme: {

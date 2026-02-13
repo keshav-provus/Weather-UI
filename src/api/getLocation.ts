@@ -1,6 +1,6 @@
 async function reverseGeocode(lat: number, lon: number): Promise<string> {
   try {
-    const url = `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lon}&localityLanguage=en`;
+    const url = `${import.meta.env.VITE_REVERSE_GEOCODE_API_URL}latitude=${lat}&longitude=${lon}&localityLanguage=en`;
     const response = await fetch(url);
     if (!response.ok) throw new Error("Reverse geocoding failed");
 
@@ -14,7 +14,7 @@ async function reverseGeocode(lat: number, lon: number): Promise<string> {
 
 async function fetchLocationUsingIP(): Promise<string> {
   try {
-    const response = await fetch("https://ipapi.co/json/");
+    const response = await fetch(`${import.meta.env.VITE_IP_GEOLOCATION_API_URL}`);
     if (!response.ok) throw new Error("IP fetch failed");
 
     const data = await response.json();

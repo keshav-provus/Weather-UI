@@ -11,7 +11,7 @@ export default function LeftPanel({
   unit: Unit;
 }) {
   const MET_BASE =
-    "https://raw.githubusercontent.com/metno/weathericons/main/weather/svg/";
+    `${import.meta.env.VITE_THEME_ICON_BASE_URL}`;
   const unitSymbol = unit === Unit.Metric ? "C" : "F";
 
   const getIcon = (vcIcon: string) => {
