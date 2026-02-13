@@ -1,16 +1,15 @@
-async function fetchLocationUsingIP(): Promise<string> {
+export async function fetchLocation(): Promise<string> {
   try {
-    const response = await fetch(`https://demo.ip-api.com/json/?fields=city`);
-    if (!response.ok) throw new Error("IP fetch failed");
+    // This provider supports HTTPS and is Vercel-friendly
+    const response = await fetch('https://freeipapi.com/api/json/');
+    
+    if (!response.ok) throw new Error("Location fetch failed");
 
     const data = await response.json();
-    return data.city || "Pune";
+    // Use the cityName property from their specific response
+    return data.cityName || "Jaipur"; 
   } catch (error) {
-    console.error("IP lookup error:", error);
-    return "Pune";
+    console.error("Geolocation error:", error);
+    return "Jaipur"; // Safe fallback
   }
 }
-
-export async function fetchLocation(): Promise<string> {
-    return await fetchLocationUsingIP();
-  }
