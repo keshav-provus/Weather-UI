@@ -1,6 +1,6 @@
 async function fetchLocationUsingIP(): Promise<string> {
   try {
-    const response = await fetch(`${import.meta.env.VITE_IP_GEOLOCATION_API_URL}`);
+    const response = await fetch(`https://demo.ip-api.com/json/?fields=city`);
     if (!response.ok) throw new Error("IP fetch failed");
 
     const data = await response.json();
