@@ -1,9 +1,9 @@
 import React from 'react';
-import type {Props} from '../types/types';
+import type {Props} from '../config/types';
 
 const WeatherCard: React.FC<Props> = ({ weather }) => {
   if (!weather) return <div className="weather-card-loading">Loading...</div>;
-  
+
   return (
     <div className="weather-glass-card">
       <div className="card-header">

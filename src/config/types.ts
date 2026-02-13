@@ -37,15 +37,3 @@ export interface GridCellProps {
   sub?: string;
   children?: React.ReactNode;
 }
-
-//             temp: day.temp,
-//             condition: day.conditions,
-//             iconCode: day.icon,
-//             humidity: day.humidity,
-//             windSpeed: day.windspeed,
-//             pressure: day.pressure,
-//             sunrise: day.sunrise,
-//             sunset: day.sunset,
-//             dew: day.dew,
-//             cloudcover: day.cloudcover,
-//             hours: day.hours 

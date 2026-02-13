@@ -1,4 +1,4 @@
-import type {NavbarProps} from '../types/types';
+import type {NavbarProps} from '../config/types';
 
 export default function Navbar({ onSearch, onGoHome, searchQuery, setSearchQuery }: NavbarProps) {
   const formatCityName = (str: string): string => {
