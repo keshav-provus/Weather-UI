@@ -29,13 +29,13 @@ A sleek, responsive, and performance-driven **Weather Dashboard** built with **R
 
 ### 📦 Installation
 
-1.  Bashgit clone https://github.com/keshav-provus/Weather-UI.gitcd Weather-UI
+1.  git clone https://github.com/keshav-provus/Weather-UI.gitcd Weather-UI
     
-2.  Bashnpm install
+2.  npm install
     
-3.  Code snippetVITE\_WEATHER\_API\_KEY=your\_visual\_crossing\_keyVITE\_STADIA\_API\_KEY=your\_stadia\_maps\_key
+3.  Make .env and insert your API keys
     
-4.  Bashnpm run dev
+4.  npm run dev
     
 
 ### ☁️ Deployment
