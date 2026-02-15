@@ -184,7 +184,7 @@ The project has multiple TypeScript/ESLint violations:
 This is a solid foundation that needs refinement around security, accessibility, and type safety before production deployment.
 
 
-## Code Quality Score: **6.5/10** ⭐
+## Code Quality Score: **6.5/10**
 
 ### Scoring Breakdown:
 
